@@ -1,0 +1,254 @@
+/* 🔹 Configuración general */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #F5F5F5;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔹 Navbar con animación */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.4s, box-shadow 0.4s;
+}
+.navbar.scrolled {
+    background-color: #222;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.3);
+}
+.navbar a {
+    transition: color 0.3s;
+}
+.navbar a:hover {
+    color: #000000;
+}
+
+/* 🔹 Ajuste de tamaño para el carrusel */
+#promoCarousel {
+    max-width: 600px; /* Limita el ancho del carrusel */
+    height: 250px; /* Define una altura compacta */
+    margin: auto; /* Centra el carrusel */
+    overflow: hidden; /* Evita desbordamiento */
+    border-radius: 12px; /* Bordes redondeados */
+}
+
+/* 🔹 Ajuste de imágenes dentro del carrusel */
+#promoCarousel .carousel-item img {
+    width: 100%;
+    height: 250px; /* Mantiene proporción sin deformarse */
+    object-fit: cover; /* Ajusta la imagen sin perder calidad */
+}
+
+
+/* 🔹 Banner con carrusel de fondo */
+.banner {
+    background-image: url('https://st4.depositphotos.com/10833154/41726/i/450/depositphotos_417264116-stock-photo-nike-air-jordan-retro-low.jpg');
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+/* 🔹 Overlay para mejorar la legibilidad */
+.banner::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+.banner-content {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+/* 🔹 Ajustar el texto del banner */
+.banner h1 {
+    position: relative;
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+}
+
+.banner h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+}
+
+/* 🔹 Botones refinados */
+.categoria {
+    padding: 15px 30px;
+    font-size: 22px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+}
+.categoria:hover {
+    transform: scale(1.0);
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+    background-color: #ffffff;
+    color: #222;
+}
+
+/* 🔹 Sección de Suscripción */
+.suscripcion {
+    background-color: #333;
+    padding: 40px;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+
+.col-md-4 {
+    margin-bottom: 30px; /* Ajusta según lo necesites */
+}
+
+/* 🔹 Estilo para el título h5 */
+h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333; /* Color oscuro elegante */
+    text-transform: uppercase; /* Mayúsculas para mejor presencia */
+    letter-spacing: 1px; /* Separación entre letras */
+    margin-top: 15px;
+    padding: 4%;
+}
+
+/* 🔹 Botón de WhatsApp estilizado */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+/* 🔹 Estilo para imágenes uniformes */
+.img-fluid {
+    width: 300px; /* Tamaño estándar sin ser excesivo */
+    height: 300px; /* Mantiene proporción cuadrada */
+    object-fit: cover; /* Ajusta la imagen sin deformarse */
+    border-radius: 12px; /* Bordes redondeados */
+    display: block;
+    margin: auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera para dar profundidad */
+}
+
+hr {
+    border: 0;
+    height: 2px; /* Grosor */
+    background-color: #ccc; /* Color */
+    margin: 20px 0; /* Espaciado */
+}
+
+
+/* 🔹 Footer */
+footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+footer a {
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* 🔹 Ajuste del cursor para la Wishlist */
+.wishlist-heart {
+    cursor: pointer;
+    font-size: 15px;
+    transition: color 0.3s;
+}
+.wishlist-heart:hover {
+    color: #FF6347;
+}
+
+
+/* 🔹 Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🔹 Responsive Design */
+@media screen and (max-width: 992px) {
+  #promoCarousel {
+    max-width: 90%;
+    height: 220px;
+  }
+
+  #promoCarousel .carousel-item img {
+    height: 220px;
+  }
+
+  .banner {
+    height: 350px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .banner h1 {
+    font-size: 40px;
+  }
+
+  .img-fluid {
+    width: 250px;
+    height: 250px;
+  }
+
+  .categoria {
+    font-size: 20px;
+    padding: 12px 24px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .banner {
+    height: 300px;
+  }
+
+  .banner h1 {
+    font-size: 32px;
+  }
+
+  .categoria {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  .img-fluid {
+    width: 200px;
+    height: 200px;
+  }
+
+  h5 {
+    font-size: 16px;
+    padding: 3%;
+  }
+
+  .suscripcion {
+    padding: 30px;
+  }
+
+  footer {
+    font-size: 14px;
+  }
+}
+

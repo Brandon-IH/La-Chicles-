@@ -1,0 +1,100 @@
+/* 🔹 Configuración general */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Contenedor de productos */
+#product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:left;
+}
+
+.container .chicles{
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    font-size: 20px;
+}
+/* Tarjeta de producto */
+.card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Detalles del producto */
+.card-body {
+  padding: 1.2rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #222;
+}
+
+.card-text {
+  color: #666;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Precio */
+.text-primary {
+  font-size: 1rem;
+  color: #000000 !important; /* tono dorado */
+  text-decoration:solid underline;
+  text-decoration-color: #000000;
+}
+
+/* Botón Comprar */
+.btn-dark {
+  background-color: #000;
+  border: none;
+  padding: 0.5rem 3rem;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.btn-dark:hover {
+  background-color: #333;
+}
+
+/* Corazón de wishlist */
+.wishlist-heart {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+  display: block;
+  margin: 0.5rem auto;
+}
+
+.wishlist-heart:hover {
+  transform: scale(1.2);
+  color: #d9534f;
+}
+
+/* 🔹 Responsive Design */
+@media screen and (max-width: 768px) {
+    .product-img {
+        height: 150px;
+    }
+}
