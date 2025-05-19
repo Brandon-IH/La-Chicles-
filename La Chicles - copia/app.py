@@ -1,11 +1,17 @@
 from flask import Flask, render_template, request, jsonify
 from config import Config
 from models import db, Producto  
-import psycopg2
+import os
+from psycopg2 import connect
 
 app = Flask(__name__)
 app.config.from_object(Config)
 db.init_app(app)
+
+# Conexión a la base de datos en Railway
+DATABASE_URL = os.getenv("DATABASE_URL")  
+conn = connect(DATABASE_URL)
+cursor = conn.cursor()
 
 def obtener_productos_destacados():
     productos = [
@@ -14,10 +20,6 @@ def obtener_productos_destacados():
         {"id": 3, "nombre": "Zapatillas Deportivas", "descripcion": "Para máximo rendimiento.", "precio": 1500, "imagen_url": "https://ejemplo.com/zapatillas.jpg", "whatsapp_link": "https://wa.me/+523334821147"},
     ]
     return productos
-
-# Conexión a la base de datos
-conn = psycopg2.connect("dbname=mi_catalogo user=postgres password=214604219 host=localhost")
-cursor = conn.cursor()
 
 @app.route("/guardar-comentario", methods=["POST"])
 def guardar_comentario():
@@ -31,7 +33,6 @@ def guardar_comentario():
     conn.commit()
     
     return jsonify({"message": "Comentario guardado"}), 200
-
 
 @app.route('/wishlist')
 def wishlist():
@@ -47,6 +48,8 @@ def inicio():
     productos_destacados = obtener_productos_destacados()
     return render_template('index.html', productos_destacados=productos_destacados)
 
-
+# Iniciar el servidor
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Toma el puerto desde Railway
+    app.run(host="0.0.0.0", port=port, debug=True)
+
