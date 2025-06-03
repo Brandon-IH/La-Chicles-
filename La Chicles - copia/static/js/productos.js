@@ -1,24 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const categoryFilter = document.getElementById('categoryFilter');
-    const articleFilter = document.getElementById('articleFilter');
-    const sortFilter = document.getElementById('sortFilter');
-    const productList = document.getElementById('product-list');
+    const params = new URLSearchParams(window.location.search);
+    const categoriaSeleccionada = params.get("categoria");
+
+    const categoryFilter = document.getElementById("categoryFilter");
+    const articleFilter = document.getElementById("articleFilter");
+    const sortFilter = document.getElementById("sortFilter");
+    const productList = document.getElementById("product-list");
     const toggleButton = document.getElementById("toggleFilters");
     const filters = document.getElementById("filters");
 
-    // 🔹 Ajuste para mostrar y ocultar los filtros correctamente
-    toggleButton.addEventListener("click", function () {
-        if (filters.classList.contains("d-none")) {
-            filters.classList.remove("d-none");
-            filters.style.display = "flex"; // Asegura que los filtros se muestren
-        } else {
-            filters.classList.add("d-none");
-            filters.style.display = "none"; // Oculta los filtros correctamente
-        }
+    // 🔹 Mostrar filtros correctamente en responsive
+    toggleButton.addEventListener("click", () => {
+        filters.style.display = filters.style.display === "none" ? "flex" : "none";
     });
 
     function filtrarYOrdenar() {
-        const categoria = categoryFilter.value;
+        const categoria = categoriaSeleccionada || categoryFilter.value; // Priorizar URL si viene desde el index
         const articulo = articleFilter.value;
         const orden = sortFilter.value;
 
@@ -31,11 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const coincideCategoria = !categoria || cat === categoria.toLowerCase();
             const coincidePrenda = !articulo || prenda === articulo.toLowerCase();
 
-            if (coincideCategoria && coincidePrenda) {
-                producto.style.display = 'block';
-            } else {
-                producto.style.display = 'none';
-            }
+            producto.style.display = coincideCategoria && coincidePrenda ? 'block' : 'none';
         });
 
         // 🔹 Ordenar productos visibles por precio
@@ -49,7 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
         productosVisibles.forEach(producto => productList.appendChild(producto));
     }
 
-    // 🔹 Eventos para actualizar los filtros al cambiar valores
+    // Si hay una categoría en la URL, ajustar el filtro automáticamente
+    if (categoriaSeleccionada) {
+        categoryFilter.value = categoriaSeleccionada;
+    }
+
+    // 🔹 Eventos de actualización de filtros
     categoryFilter.addEventListener('change', filtrarYOrdenar);
     articleFilter.addEventListener('change', filtrarYOrdenar);
     sortFilter.addEventListener('change', filtrarYOrdenar);
@@ -57,3 +55,4 @@ document.addEventListener('DOMContentLoaded', () => {
     // 🔹 Ejecutar al inicio para aplicar filtros iniciales
     filtrarYOrdenar();
 });
+
