@@ -11,6 +11,7 @@ class Producto(db.Model):
     precio = db.Column(db.Float, nullable=False)
     categoria = db.Column(db.String(50), nullable=False)
     prenda = db.Column(db.String(50))
+    talla = db.Column(db.String(50), nullable=True)
     imagen_url = db.Column(db.String(255), nullable=True)
     whatsapp_link = db.Column(db.String(255), nullable=True)
 
