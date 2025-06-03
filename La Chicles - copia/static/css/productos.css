@@ -67,7 +67,7 @@ body {
 
 /* Botón Comprar */
 .btn-dark {
-  background-color: #000;
+  background-color: #000000; /* tono dorado */
   border: none;
   padding: 0.5rem 3rem;
   border-radius: 8px;
@@ -76,6 +76,17 @@ body {
 
 .btn-dark:hover {
   background-color: #333;
+}
+
+.filtro{
+  flex-direction: column;
+  background-color: #f8f9fa;
+  border: none;
+  margin-bottom: 0px;
+}
+
+.filtro:hover{
+  text-decoration: underline;
 }
 
 /* Corazón de wishlist */
@@ -94,7 +105,11 @@ body {
 
 /* 🔹 Responsive Design */
 @media screen and (max-width: 768px) {
-    .product-img {
-        height: 150px;
-    }
+  .product-img {
+    height: 150px;
+  }
+  #filters {
+    display: none; /* Oculta los filtros en móviles */
+  }
+    
 }
