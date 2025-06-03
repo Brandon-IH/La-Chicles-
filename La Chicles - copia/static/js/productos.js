@@ -3,6 +3,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const articleFilter = document.getElementById('articleFilter');
     const sortFilter = document.getElementById('sortFilter');
     const productList = document.getElementById('product-list');
+    const toggleButton = document.getElementById("toggleFilters");
+    const filters = document.getElementById("filters");
+
+    // 🔹 Ajuste para mostrar y ocultar los filtros correctamente
+    toggleButton.addEventListener("click", function () {
+        if (filters.classList.contains("d-none")) {
+            filters.classList.remove("d-none");
+            filters.style.display = "flex"; // Asegura que los filtros se muestren
+        } else {
+            filters.classList.add("d-none");
+            filters.style.display = "none"; // Oculta los filtros correctamente
+        }
+    });
 
     function filtrarYOrdenar() {
         const categoria = categoryFilter.value;
@@ -25,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Ordenar productos visibles por precio
+        // 🔹 Ordenar productos visibles por precio
         const productosVisibles = productos.filter(p => p.style.display !== 'none');
         productosVisibles.sort((a, b) => {
             const precioA = parseFloat(a.dataset.price);
@@ -36,11 +49,11 @@ document.addEventListener('DOMContentLoaded', () => {
         productosVisibles.forEach(producto => productList.appendChild(producto));
     }
 
-
+    // 🔹 Eventos para actualizar los filtros al cambiar valores
     categoryFilter.addEventListener('change', filtrarYOrdenar);
     articleFilter.addEventListener('change', filtrarYOrdenar);
     sortFilter.addEventListener('change', filtrarYOrdenar);
 
-    // Ejecutar al inicio para aplicar filtros iniciales si hay
+    // 🔹 Ejecutar al inicio para aplicar filtros iniciales
     filtrarYOrdenar();
 });
