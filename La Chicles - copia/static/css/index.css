@@ -47,14 +47,16 @@ body {
 }
 
 
-/* 🔹 Banner con carrusel de fondo */
 .banner {
-    background-image: url('https://st4.depositphotos.com/10833154/41726/i/450/depositphotos_417264116-stock-photo-nike-air-jordan-retro-low.jpg');
+    background-image: url('https://gentleman.com.mx/wp-content/uploads/2021/02/port.DIOR_BOUTIQUE-SANTA-FE-%C2%A9-Jaime-Navarro_15.jpg');
     position: relative;
     width: 100%;
     height: 500px;
     overflow: hidden;
-    object-fit: cover; /* Ajusta la imagen sin perder calidad */
+    object-fit: cover;
+    background-repeat: no-repeat; /* Evita la repetición */
+    background-size: cover; /* Ajusta la imagen al contenedor */
+    background-position: center; /* Centra la imagen */
 }
 
 /* 🔹 Overlay para mejorar la legibilidad */
@@ -225,7 +227,7 @@ footer a {
 
 @media screen and (max-width: 768px) {
   .banner {
-    height: 300px;
+    height: 600px;
   }
 
   .banner h1 {
